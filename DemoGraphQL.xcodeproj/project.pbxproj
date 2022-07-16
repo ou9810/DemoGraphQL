@@ -11,7 +11,18 @@
 		1CD66C2B28829E2400E63A98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD66C2A28829E2400E63A98 /* ContentView.swift */; };
 		1CD66C2D28829E2500E63A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD66C2C28829E2500E63A98 /* Assets.xcassets */; };
 		1CD66C3028829E2500E63A98 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD66C2F28829E2500E63A98 /* Preview Assets.xcassets */; };
+		1CD66C402882A31100E63A98 /* DemoGraphQLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD66C3F2882A31100E63A98 /* DemoGraphQLTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CD66C412882A31100E63A98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1CD66C1D28829E2400E63A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CD66C2428829E2400E63A98;
+			remoteInfo = DemoGraphQL;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1CD66C2528829E2400E63A98 /* DemoGraphQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoGraphQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +30,19 @@
 		1CD66C2A28829E2400E63A98 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1CD66C2C28829E2500E63A98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CD66C2F28829E2500E63A98 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1CD66C3D2882A31100E63A98 /* DemoGraphQLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoGraphQLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CD66C3F2882A31100E63A98 /* DemoGraphQLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoGraphQLTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1CD66C2228829E2400E63A98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD66C3A2882A31100E63A98 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				1CD66C2728829E2400E63A98 /* DemoGraphQL */,
+				1CD66C3E2882A31100E63A98 /* DemoGraphQLTests */,
 				1CD66C2628829E2400E63A98 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				1CD66C2528829E2400E63A98 /* DemoGraphQL.app */,
+				1CD66C3D2882A31100E63A98 /* DemoGraphQLTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +89,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1CD66C3E2882A31100E63A98 /* DemoGraphQLTests */ = {
+			isa = PBXGroup;
+			children = (
+				1CD66C3F2882A31100E63A98 /* DemoGraphQLTests.swift */,
+			);
+			path = DemoGraphQLTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,6 +117,24 @@
 			productReference = 1CD66C2528829E2400E63A98 /* DemoGraphQL.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1CD66C3C2882A31100E63A98 /* DemoGraphQLTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CD66C432882A31100E63A98 /* Build configuration list for PBXNativeTarget "DemoGraphQLTests" */;
+			buildPhases = (
+				1CD66C392882A31100E63A98 /* Sources */,
+				1CD66C3A2882A31100E63A98 /* Frameworks */,
+				1CD66C3B2882A31100E63A98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CD66C422882A31100E63A98 /* PBXTargetDependency */,
+			);
+			name = DemoGraphQLTests;
+			productName = DemoGraphQLTests;
+			productReference = 1CD66C3D2882A31100E63A98 /* DemoGraphQLTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +147,10 @@
 				TargetAttributes = {
 					1CD66C2428829E2400E63A98 = {
 						CreatedOnToolsVersion = 13.3.1;
+					};
+					1CD66C3C2882A31100E63A98 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 1CD66C2428829E2400E63A98;
 					};
 				};
 			};
@@ -116,6 +168,7 @@
 			projectRoot = "";
 			targets = (
 				1CD66C2428829E2400E63A98 /* DemoGraphQL */,
+				1CD66C3C2882A31100E63A98 /* DemoGraphQLTests */,
 			);
 		};
 /* End PBXProject section */
@@ -127,6 +180,13 @@
 			files = (
 				1CD66C3028829E2500E63A98 /* Preview Assets.xcassets in Resources */,
 				1CD66C2D28829E2500E63A98 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CD66C3B2882A31100E63A98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +202,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1CD66C392882A31100E63A98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CD66C402882A31100E63A98 /* DemoGraphQLTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CD66C422882A31100E63A98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1CD66C2428829E2400E63A98 /* DemoGraphQL */;
+			targetProxy = 1CD66C412882A31100E63A98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1CD66C3128829E2500E63A98 /* Debug */ = {
@@ -317,6 +393,42 @@
 			};
 			name = Release;
 		};
+		1CD66C442882A31100E63A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XUT42CJK5K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.ryan.DemoGraphQLTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoGraphQL.app/DemoGraphQL";
+			};
+			name = Debug;
+		};
+		1CD66C452882A31100E63A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XUT42CJK5K;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.ryan.DemoGraphQLTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoGraphQL.app/DemoGraphQL";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -334,6 +446,15 @@
 			buildConfigurations = (
 				1CD66C3428829E2500E63A98 /* Debug */,
 				1CD66C3528829E2500E63A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CD66C432882A31100E63A98 /* Build configuration list for PBXNativeTarget "DemoGraphQLTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD66C442882A31100E63A98 /* Debug */,
+				1CD66C452882A31100E63A98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
