@@ -7,35 +7,39 @@
 
 import Foundation
 
-struct User: Decodable {
-    var id: String?
-    var email: String?
-    var name: String?
+// These codable structure are generated from https://app.quicktype.io/
+
+
+// MARK: - Welcome
+struct GraphQLResult: Codable {
+    let data: DataClass
 }
 
-struct Todo: Decodable {
-    var id: String?
-    var description: String?
-    var done: Bool
+// MARK: - DataClass
+struct DataClass: Codable {
+    let user: PurpleUser?
+    let users: [UserElement]?
+    let todos: [Todo]?
 }
 
-struct GraphQLResult: Decodable {
-    var users: [User]?
-    var todos: [Todo]?
-    
-    enum RootCodingKeys: String, CodingKey {
-        case data
-        
-        enum NestedCodingKeys: String, CodingKey {
-            case users
-            case todos
-        }
+// MARK: - Todo
+struct Todo: Codable {
+    let id, todoDescription: String?
+    let done: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case todoDescription = "description"
+        case done
     }
-    
-    init(from decoder: Decoder) throws {
-        let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
-        let container = try rootContainer.nestedContainer(keyedBy: RootCodingKeys.NestedCodingKeys.self, forKey: .data)
-        self.users = try container.decodeIfPresent([User].self, forKey: .users)
-        self.todos = try container.decodeIfPresent([Todo].self, forKey: .todos)
-    }
+}
+
+// MARK: - PurpleUser
+struct PurpleUser: Codable {
+    let todos: [Todo]?
+}
+
+// MARK: - UserElement
+struct UserElement: Codable {
+    let id, email, name: String?
 }
