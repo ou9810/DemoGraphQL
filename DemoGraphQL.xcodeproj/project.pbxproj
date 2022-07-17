@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CB383DB2883CF85007CB48F /* DataFetcherTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB383DA2883CF85007CB48F /* DataFetcherTest.swift */; };
+		1CB383DD2883D2AE007CB48F /* GraphQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB383DC2883D2AD007CB48F /* GraphQLQuery.swift */; };
+		1CB383E1288405D6007CB48F /* GraphQLResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB383E0288405D6007CB48F /* GraphQLResult.swift */; };
 		1CD66C2928829E2400E63A98 /* DemoGraphQLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD66C2828829E2400E63A98 /* DemoGraphQLApp.swift */; };
 		1CD66C2B28829E2400E63A98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD66C2A28829E2400E63A98 /* ContentView.swift */; };
 		1CD66C2D28829E2500E63A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD66C2C28829E2500E63A98 /* Assets.xcassets */; };
 		1CD66C3028829E2500E63A98 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD66C2F28829E2500E63A98 /* Preview Assets.xcassets */; };
 		1CD66C402882A31100E63A98 /* DemoGraphQLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD66C3F2882A31100E63A98 /* DemoGraphQLTests.swift */; };
+		1CD66C482882A73A00E63A98 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD66C472882A73900E63A98 /* DataFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CB383DA2883CF85007CB48F /* DataFetcherTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherTest.swift; sourceTree = "<group>"; };
+		1CB383DC2883D2AD007CB48F /* GraphQLQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLQuery.swift; sourceTree = "<group>"; };
+		1CB383E0288405D6007CB48F /* GraphQLResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResult.swift; sourceTree = "<group>"; };
 		1CD66C2528829E2400E63A98 /* DemoGraphQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoGraphQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD66C2828829E2400E63A98 /* DemoGraphQLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoGraphQLApp.swift; sourceTree = "<group>"; };
 		1CD66C2A28829E2400E63A98 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +39,7 @@
 		1CD66C2F28829E2500E63A98 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1CD66C3D2882A31100E63A98 /* DemoGraphQLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoGraphQLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD66C3F2882A31100E63A98 /* DemoGraphQLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoGraphQLTests.swift; sourceTree = "<group>"; };
+		1CD66C472882A73900E63A98 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CB383E2288408BB007CB48F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1CD66C2A28829E2400E63A98 /* ContentView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		1CD66C1C28829E2400E63A98 = {
 			isa = PBXGroup;
 			children = (
@@ -73,8 +89,10 @@
 		1CD66C2728829E2400E63A98 /* DemoGraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				1CB383E2288408BB007CB48F /* UI */,
+				1CD66C462882A72800E63A98 /* Query */,
+				1CD66C472882A73900E63A98 /* DataFetcher.swift */,
 				1CD66C2828829E2400E63A98 /* DemoGraphQLApp.swift */,
-				1CD66C2A28829E2400E63A98 /* ContentView.swift */,
 				1CD66C2C28829E2500E63A98 /* Assets.xcassets */,
 				1CD66C2E28829E2500E63A98 /* Preview Content */,
 			);
@@ -93,8 +111,18 @@
 			isa = PBXGroup;
 			children = (
 				1CD66C3F2882A31100E63A98 /* DemoGraphQLTests.swift */,
+				1CB383DA2883CF85007CB48F /* DataFetcherTest.swift */,
 			);
 			path = DemoGraphQLTests;
+			sourceTree = "<group>";
+		};
+		1CD66C462882A72800E63A98 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				1CB383DC2883D2AD007CB48F /* GraphQLQuery.swift */,
+				1CB383E0288405D6007CB48F /* GraphQLResult.swift */,
+			);
+			path = Query;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -113,6 +141,8 @@
 			dependencies = (
 			);
 			name = DemoGraphQL;
+			packageProductDependencies = (
+			);
 			productName = DemoGraphQL;
 			productReference = 1CD66C2528829E2400E63A98 /* DemoGraphQL.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +193,8 @@
 				Base,
 			);
 			mainGroup = 1CD66C1C28829E2400E63A98;
+			packageReferences = (
+			);
 			productRefGroup = 1CD66C2628829E2400E63A98 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -197,8 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD66C482882A73A00E63A98 /* DataFetcher.swift in Sources */,
 				1CD66C2B28829E2400E63A98 /* ContentView.swift in Sources */,
+				1CB383DD2883D2AE007CB48F /* GraphQLQuery.swift in Sources */,
 				1CD66C2928829E2400E63A98 /* DemoGraphQLApp.swift in Sources */,
+				1CB383E1288405D6007CB48F /* GraphQLResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CD66C402882A31100E63A98 /* DemoGraphQLTests.swift in Sources */,
+				1CB383DB2883CF85007CB48F /* DataFetcherTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
