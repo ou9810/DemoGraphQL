@@ -23,7 +23,21 @@ class DataFetcherTest: XCTestCase {
     
     func testQueryAll() {
         // Arrange
-        let query = GraphQLQuery(queryString: "{ users { id email name } todos { id description done } }")
+        let query = GraphQLQuery(queryString:
+            """
+            query {
+              users {
+                id
+                email
+                name
+              }
+              todos {
+                id
+                description
+                done
+              }
+            }
+            """)
         let expectation = expectation(description: "task finished")
 
         // Act
@@ -47,7 +61,16 @@ class DataFetcherTest: XCTestCase {
     
     func testQueryUsersAll() {
         // Arrange
-        let query = GraphQLQuery(queryString: "{ users { id email name } }")
+        let query = GraphQLQuery(queryString:
+            """
+            query {
+              users {
+                id
+                email
+                name
+              }
+            }
+            """)
         let expectation = expectation(description: "task finished")
 
         // Act
@@ -70,7 +93,16 @@ class DataFetcherTest: XCTestCase {
     
     func testQueryTodosAll() {
         // Arrange
-        let query = GraphQLQuery(queryString: "{ todos { id description done } }")
+        let query = GraphQLQuery(queryString:
+            """
+            query {
+              todos {
+                id
+                description
+                done
+              }
+            }
+            """)
         let expectation = expectation(description: "task finished")
 
         // Act
@@ -94,17 +126,17 @@ class DataFetcherTest: XCTestCase {
     func testQueryUserTodos() {
         // Arrange
         let query = GraphQLQuery(queryString:
-        """
-        {
-          user(id: "Hello World") {
-            todos {
-              id
-              description
-              done
+            """
+            query {
+              user(id: "Hello World") {
+                todos {
+                  id
+                  description
+                  done
+                }
+              }
             }
-          }
-        }
-        """)
+            """)
         let expectation = expectation(description: "task finished")
 
         // Act
@@ -114,6 +146,40 @@ class DataFetcherTest: XCTestCase {
             switch result {
             case .success(let output):
                 XCTAssertNotNil(output?.data.user?.todos)
+                
+            case .failure(_):
+                XCTAssert(false)
+            }
+            
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 5)
+    }
+    
+    func testMutateTodosToUser() {
+        // Arrange
+        let query = GraphQLQuery(queryString:
+            """
+            mutation {
+              updateTodo(input: {
+                id: "23706D77-6EA0-4463-91E0-1B4B6043D285",
+                done: true
+              }) {
+                id
+                done
+              }
+            }
+            """)
+        let expectation = expectation(description: "task finished")
+
+        // Act
+        dataFetcher.fetch(query: query, of: GraphQLResult.self) { result in
+            
+            // Assert
+            switch result {
+            case .success(let output):
+                XCTAssertNotNil(output?.data.updateTodo)
                 
             case .failure(_):
                 XCTAssert(false)

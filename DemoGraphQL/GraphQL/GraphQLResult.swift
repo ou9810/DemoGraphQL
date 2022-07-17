@@ -9,20 +9,21 @@ import Foundation
 
 // These codable structure are generated from https://app.quicktype.io/
 
-
-// MARK: - Welcome
 struct GraphQLResult: Codable {
     let data: DataClass
 }
 
-// MARK: - DataClass
 struct DataClass: Codable {
-    let user: PurpleUser?
-    let users: [UserElement]?
+    let user: QueryUser?
+    let users: [User]?
     let todos: [Todo]?
+    let updateTodo: Todo?
 }
 
-// MARK: - Todo
+struct User: Codable {
+    let id, email, name: String?
+}
+
 struct Todo: Codable {
     let id, todoDescription: String?
     let done: Bool?
@@ -34,12 +35,6 @@ struct Todo: Codable {
     }
 }
 
-// MARK: - PurpleUser
-struct PurpleUser: Codable {
+struct QueryUser: Codable {
     let todos: [Todo]?
-}
-
-// MARK: - UserElement
-struct UserElement: Codable {
-    let id, email, name: String?
 }
