@@ -35,7 +35,7 @@ struct ContentView: View {
         dataFetcher.fetch(query: query, of: GraphQLResult.self) { result in
             switch result {
             case .success(let output):
-                outputString = "\(output!)"
+                outputString = output?.description() ?? ""
                 presentDetailView = true
             case .failure(let error):
                 outputError = error
@@ -100,50 +100,66 @@ struct ContentView: View {
                         Spacer()
                     }
                 }
-                Section(header: Text("User")) {
-                    TextField("Enter user ID here:", text: $queryUserID)
-                    HStack {
-                        Spacer()
-                        Button("Query") {
-                            let query = GraphQLQuery(queryString:
-                                """
-                                {
-                                  user(id: "\(queryUserID)") {
-                                    todos {
-                                      \(showID ? "id" : "")
-                                          \(showDescription ? "description" : "")
-                                          \(showDone ? "done" : "")
-                                    }
-                                  }
-                                }
-                                """)
-                            fetchWithQuery(query: query)
-                        }
-                        Spacer()
-                    }
-                }
                 Section(header: Text("Todos")) {
+                    TextField("Enter user to query:", text: $queryUserID)
                     Toggle("ID", isOn: $showID)
                     Toggle("Description", isOn: $showDescription)
                     Toggle("Done", isOn: $showDone)
                     HStack {
                         Spacer()
                         Button("Query") {
-                            let query = GraphQLQuery(queryString:
-                                """
-                                {
-                                  todos {
-                                    \(showID ? "id" : "")
-                                    \(showDescription ? "description" : "")
-                                    \(showDone ? "done" : "")
-                                  }
-                                }
-                                """)
-                            fetchWithQuery(query: query)
+                            var query: GraphQLQuery?
+                            
+                            if queryUserID.count > 0 {
+                                query = GraphQLQuery(queryString:
+                                    """
+                                    {
+                                      user(id: "\(queryUserID)") {
+                                        todos {
+                                          \(showID ? "id" : "")
+                                          \(showDescription ? "description" : "")
+                                          \(showDone ? "done" : "")
+                                        }
+                                      }
+                                    }
+                                    """)
+                            } else {
+                                query = GraphQLQuery(queryString:
+                                    """
+                                    {
+                                      todos {
+                                        \(showID ? "id" : "")
+                                        \(showDescription ? "description" : "")
+                                        \(showDone ? "done" : "")
+                                      }
+                                    }
+                                    """)
+                            }
+                            
+                            fetchWithQuery(query: query!)
                         }
                         Spacer()
                     }
                 }
+            }
+            Divider()
+            Button("Query All") {
+                let query = GraphQLQuery(queryString:
+                    """
+                    {
+                      users {
+                        id
+                        email
+                        name
+                      }
+                      todos {
+                        id
+                        description
+                        done
+                      }
+                    }
+                    """)
+                fetchWithQuery(query: query)
             }
         }
         .padding()
