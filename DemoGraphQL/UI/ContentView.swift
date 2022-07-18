@@ -111,8 +111,8 @@ struct ContentView: View {
                                   user(id: "\(queryUserID)") {
                                     todos {
                                       \(showID ? "id" : "")
-                                      \(showEmail ? "email" : "")
-                                      \(showName ? "name" : "")
+                                          \(showDescription ? "description" : "")
+                                          \(showDone ? "done" : "")
                                     }
                                   }
                                 }
